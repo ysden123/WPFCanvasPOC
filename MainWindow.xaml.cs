@@ -31,6 +31,21 @@ namespace WpfCanvasPOC
             };
         }
 
+        private void MenuItem_BrushPlus_Click(object sender, RoutedEventArgs e)
+        {
+            Canvas.DefaultDrawingAttributes.Width *= 2;
+            Canvas.DefaultDrawingAttributes.Height *= 2;
+        }
+
+        private void MenuItem_BrushMinus_Click(object sender, RoutedEventArgs e)
+        {
+            if (Canvas.DefaultDrawingAttributes.Width >= 2)
+            {
+                Canvas.DefaultDrawingAttributes.Width /= 2;
+                Canvas.DefaultDrawingAttributes.Height /= 2;
+            }
+        }
+
         private void MenuItem_Save_Click(object sender, RoutedEventArgs e)
         {
             // Define the dimensions of the canvas
