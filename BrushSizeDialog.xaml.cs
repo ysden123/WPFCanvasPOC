@@ -3,12 +3,18 @@ using System.Windows;
 
 namespace WpfCanvasPOC
 {
+    public static partial class RegexUtilities
+    {
+        [GeneratedRegex(@"^[0-9]*$")]
+        public static partial Regex ValidateNumberRegex();
+
+    }
+
     /// <summary>
     /// Interaction logic for BrushSizeDialog.xaml
     /// </summary>
     public partial class BrushSizeDialog : Window
     {
-        private static Regex regexNumberOnly = new Regex("[^0-9]+");
         public BrushSizeDialogData? BrushSizeDialogData { get; set; }
         public BrushSizeDialog(BrushSizeDialogData brushSizeDialogData)
         {
@@ -47,7 +53,7 @@ namespace WpfCanvasPOC
 
         private void NumberOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            e.Handled = regexNumberOnly.IsMatch(e.Text);
+            e.Handled = !RegexUtilities.ValidateNumberRegex().IsMatch(e.Text);
         }
     }
 }
