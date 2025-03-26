@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -72,6 +71,24 @@ namespace WpfCanvasPOC
             {
                 jpegEncoder.Save(fileStream);
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_BrushSize_Click(object sender, RoutedEventArgs e)
+        {
+            BrushSizeDialogData brushSize = new BrushSizeDialogData(Canvas.DefaultDrawingAttributes.Width, Canvas.DefaultDrawingAttributes.Height);
+            var brushSizeDialog = new BrushSizeDialog(brushSize);
+            brushSizeDialog.Owner = this;
+            if (brushSizeDialog.ShowDialog() == true)
+            {
+                Canvas.DefaultDrawingAttributes.Width = brushSize.Width;
+                Canvas.DefaultDrawingAttributes.Height = brushSize.Height;
+            }
+
         }
     }
 }

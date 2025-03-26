@@ -11,6 +11,7 @@
             <MenuItem Header="Actions">
                 <MenuItem Header="Brush +" Click="MenuItem_BrushPlus_Click"/>
                 <MenuItem Header="Brush -" Click="MenuItem_BrushMinus_Click"/>
+                <MenuItem Header="Brush size" Click="MenuItem_BrushSize_Click"/>
                 <MenuItem Header="Save" Click="MenuItem_Save_Click"/>
             </MenuItem>
         </Menu>
